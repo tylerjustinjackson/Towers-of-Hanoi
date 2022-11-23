@@ -65,6 +65,7 @@ class Disks():
             FONT = ("Verdana", 50, "bold")
             self.game.color('white')
             self.game.goto(0,0)
+            
             if text==True:
                 self.game.write(f'YOU WON!', align=align, font=FONT)
             elif text==False:
@@ -107,7 +108,24 @@ class Disks():
         self.errors.write('Invalid Move!', align=align, font=FONT)
         time.sleep(1.7)
         self.errors.clear()
-
+        
+    def space(self):
+        self.enter = Turtle()
+        align = "center"
+        self.enter.hideturtle()
+        self.enter.penup()
+        self.enter.speed('fastest')
+        FONT = ("Verdana", 20, "bold")
+        self.enter.color('white')
+        self.enter.goto(-200,0)
+        self.enter.write('A', align=align, font=FONT)
+        self.enter.goto(0,0)
+        self.enter.write('B', align=align, font=FONT)
+        self.enter.goto(200,0)
+        self.enter.write('C', align=align, font=FONT)
+        time.sleep(1.7)
+        self.enter.clear()
+        
     def MoveA(self):
         try:
             disk= rowa[0][0]
@@ -305,28 +323,8 @@ class Disks():
                     disk.goto(-200, 20+d)
                     rowa.insert(0,[disk, 20+d, pos])
                     del rowc[0]
-    
-
-
-    def space(self):
-        self.enter = Turtle()
-        align = "center"
-        self.enter.hideturtle()
-        self.enter.penup()
-        self.enter.speed('fastest')
-        FONT = ("Verdana", 20, "bold")
-        self.enter.color('white')
-        self.enter.goto(-200,0)
-        self.enter.write('A', align=align, font=FONT)
-        self.enter.goto(0,0)
-        self.enter.write('B', align=align, font=FONT)
-        self.enter.goto(200,0)
-        self.enter.write('C', align=align, font=FONT)
-        time.sleep(1.7)
-        self.enter.clear()
-
-
-
+                    
+                    
 # FUNCTIONS
 
 def intro():
